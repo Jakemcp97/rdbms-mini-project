@@ -13,4 +13,25 @@
 </div>
 
 
+<div class="row">
+    <!--Collapsible-->
+
+    <div class="col s12 center-align">
+        <ul class="collapsible">
+            {% for task in tasks %}
+            <li>
+                <div class="collapsible-header">{{task.task_name}} : {{task.due_date.strftime("%d , %B , %Y")}}
+                    {% if task.is_urgent == True %}
+                    <i class="fas fa-exclamation-circle"></i>
+                    {% endif %}
+                </div>
+                <div class="collapsible-body"> {{ task.category}} <p>{{task.task_description}}</p></div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</div>
+
 {% endblock %}
